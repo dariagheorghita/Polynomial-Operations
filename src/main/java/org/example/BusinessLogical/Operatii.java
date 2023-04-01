@@ -17,7 +17,10 @@ public class Operatii {
         for (Integer m : p2.getMonoms().keySet()) {
             double constanta = p2.getMonoms().get(m).getCoef();
             if (res.getMonoms().containsKey(m)) {
-                constanta = constanta + res.getMonoms().get(m).getCoef();
+                res.getMonoms().get(m).setCoef(p2.getMonoms().get(m).getCoef() + res.getMonoms().get(m).getCoef());
+            }
+            else {
+                res.getMonoms().put(m, p2.getMonoms().get(m));
             }
         }
         return res;
@@ -58,7 +61,7 @@ public class Operatii {
     }
 
     //DERIVARE
-   public static Polinom derivatePolinom(Polinom pol) {
+    public static Polinom derivatePolinom(Polinom pol) {
         Polinom res = new Polinom();
 
         for (Integer m : pol.getMonoms().keySet()) {
