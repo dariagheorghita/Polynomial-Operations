@@ -18,8 +18,7 @@ public class Operatii {
             double constanta = p2.getMonoms().get(m).getCoef();
             if (res.getMonoms().containsKey(m)) {
                 res.getMonoms().get(m).setCoef(p2.getMonoms().get(m).getCoef() + res.getMonoms().get(m).getCoef());
-            }
-            else {
+            } else {
                 res.getMonoms().put(m, p2.getMonoms().get(m));
             }
         }
@@ -29,14 +28,18 @@ public class Operatii {
     //SCADERE
     public static Polinom substractPolinoms(Polinom p1, Polinom p2) {
         Polinom res = new Polinom();
+
         for (Integer m : p1.getMonoms().keySet()) {
-            res.getMonoms().put(m, new Monom(p1.getMonoms().get(m).getCoef() * (-1), p1.getMonoms().get(m).getExp()));
+            res.getMonoms().put(m, p1.getMonoms().get(m));
         }
 
         for (Integer m : p2.getMonoms().keySet()) {
             double constanta = p2.getMonoms().get(m).getCoef();
             if (res.getMonoms().containsKey(m)) {
-                constanta = constanta + res.getMonoms().get(m).getCoef();
+                res.getMonoms().get(m).setCoef(res.getMonoms().get(m).getCoef() - p2.getMonoms().get(m).getCoef());
+            } else {
+                p2.getMonoms().get(m).setCoef((-1) * p2.getMonoms().get(m).getCoef());
+                res.getMonoms().put(m, p2.getMonoms().get(m));
             }
         }
         return res;
@@ -66,9 +69,9 @@ public class Operatii {
 
         for (Integer m : pol.getMonoms().keySet()) {
             Monom monom = pol.getMonoms().get(m);
-            monom.setExp(monom.getExp() + 1);
-            monom.setCoef(monom.getCoef() / (monom.getExp() + 1));
-            res.getPolinom();
+            monom.setExp(monom.getExp() - 1);
+            monom.setCoef(monom.getCoef() * m);
+            res.getPolinom().put(monom.getExp(), monom);
         }
         return res;
     }
@@ -79,9 +82,9 @@ public class Operatii {
 
         for (Integer m : pol.getMonoms().keySet()) {
             Monom monom = pol.getMonoms().get(m);
-            monom.setExp(monom.getExp() - 1);
-            monom.setCoef(monom.getCoef() * monom.getExp());
-            res.getPolinom();
+            monom.setExp(monom.getExp() + 1);
+            monom.setCoef( monom.getCoef() / (m + 1));
+            res.getPolinom().put(monom.getExp(), monom);
         }
         return res;
     }
