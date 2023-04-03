@@ -15,7 +15,6 @@ public class Operatii {
         }
 
         for (Integer m : p2.getMonoms().keySet()) {
-            double constanta = p2.getMonoms().get(m).getCoef();
             if (res.getMonoms().containsKey(m)) {
                 res.getMonoms().get(m).setCoef(p2.getMonoms().get(m).getCoef() + res.getMonoms().get(m).getCoef());
             } else {
@@ -34,7 +33,6 @@ public class Operatii {
         }
 
         for (Integer m : p2.getMonoms().keySet()) {
-            double constanta = p2.getMonoms().get(m).getCoef();
             if (res.getMonoms().containsKey(m)) {
                 res.getMonoms().get(m).setCoef(res.getMonoms().get(m).getCoef() - p2.getMonoms().get(m).getCoef());
             } else {

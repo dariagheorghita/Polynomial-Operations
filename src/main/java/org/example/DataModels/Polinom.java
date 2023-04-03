@@ -19,13 +19,15 @@ public class Polinom {
 
     @Override
     public String toString() {
-        String string="";
-        for(Monom m: getPolinom().values()){
-            if(m.getCoef()<0){
-                string=(m.getCoef() + "x^" + m.getExp())+string;
+        String string = "";
+        for (Monom m : getPolinom().values()) {
+            if (m.getCoef() == 0.0) {
+                string = (" ") + string;
             }
-            else{
-                string=("+" + m.getCoef() + "x^" + m.getExp()) + string;
+            if (m.getCoef() < 0) {
+                string = (m.getCoef() + "x^" + m.getExp()) + string;
+            } else {
+                string = ("+" + m.getCoef() + "x^" + m.getExp()) + string;
             }
         }
         return string;

@@ -10,7 +10,8 @@ import java.util.regex.Pattern;
 public class Regex {
     public static Polinom computeInputString(String polinom){
         Polinom polinom1 = new Polinom();
-        String regPattern = "([\\+\\-]?[0-9]+.[0-9]+)x\\^([0-9]+)";
+        //String regPattern = "([\\+\\-]?[0-9]+.[0-9]+)x\\^([0-9]+)";
+        String regPattern = "([\\+\\-]?[0-9]+)x\\^([0-9]+)";
 
         Pattern pattern = Pattern.compile(regPattern);
         Matcher matcher = pattern.matcher(polinom);
