@@ -23,11 +23,12 @@ public class Polinom {
         for (Monom m : getPolinom().values()) {
             if (m.getCoef() == 0.0) {
                 string = (" ") + string;
-            }
-            if (m.getCoef() < 0) {
-                string = (m.getCoef() + "x^" + m.getExp()) + string;
             } else {
-                string = ("+" + m.getCoef() + "x^" + m.getExp()) + string;
+                if (m.getCoef() < 0) {
+                    string = (m.getCoef() + "x^" + m.getExp()) + string;
+                } else {
+                    string = ("+" + m.getCoef() + "x^" + m.getExp()) + string;
+                }
             }
         }
         return string;
